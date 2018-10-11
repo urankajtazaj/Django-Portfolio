@@ -1,0 +1,121 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Uran Kajtazaj | PORTFOLIO</title>
+
+    {% load static %}
+
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/main.css' %}">
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+
+</head>
+<body>
+    
+    <div class="wrapper">
+
+        <div class="center side icons">
+            {% if skills %} <img class="active" src="{% static 'media/' %}icons/check.png"> {% endif %}
+            {% if projects %}<img src="{% static 'media/' %}icons/terminal.png"> {% endif %}
+            {% if edus %}<img src="{% static 'media/' %}icons/edu.png"> {% endif %}
+            {% if works %}<img src="{% static 'media/' %}icons/portfolio.png"> {% endif %}
+        </div>
+
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-6 col-12 left side">
+                    <h1>{{ author.name }}</h1>
+                    {{ author.profesion|safe }}
+                    <hr>
+                    {{ author.exerpt|safe }}
+                </div>
+                <div class="col-md-6 col-12 right side">
+                    <div class="tab-content">
+                        <div class="tab skills">
+                            <h1 class="light">Skills</h1>
+                            <hr>
+                            <ul class="list-unstyled">
+                                {% for s in skills %}
+                                <li><img src="{% static 'media/' %}{{ s.icon }}" alt=""> {{ s.name }}</li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+
+                        <div class="tab skills hide">
+                            <h1 class="light">Open Source Projects</h1>
+                            <hr>
+                            {% for p in projects %}
+                            <a href="{{ p.link }}" target="_blank" class="project">
+                                <h4>{{ p.name }} - <small>{{ p.short_desc }}</small></h4>
+                                <p class="faded">{{ p.description }}</p>
+                                <b>{{ p.tech }}</b>
+                            </a>
+                            {% endfor %}
+                        </div>
+
+                        <div class="tab education hide">
+                            <h1 class="light">Education</h1>
+                            <hr>  
+                            {% for e in edus %}                            
+                                <h4>{{ e.degree }} <small>- {{ e.fos }}</small></h4>
+                                <p class="lead">{{ e.uni }}, {{ e.location }}</p>
+                                <p class="faded">{{ e.date_from }} - 
+                                        {% if e.date_to %}
+                                        {{ e.date_to }}
+                                        {% else %}
+                                        Present
+                                        {% endif %}
+                                </p>
+                                <br>
+                            {% endfor %}
+                        </div>
+
+                        <div class="tab work hide">
+                            <h1 class="light">Work Experience</h1>
+                            <hr>
+                            {% for w in works %}
+                            <h4>{{ w.title }} 
+                                
+                                {% if w.company or w.location %}
+                                -
+                                {% endif %}
+                                
+                                <small>
+                                
+                                {% if w.company %}
+                                {{ w.company }}
+                                    {% if w.location %}
+                                    ,
+                                    {% endif %}
+                                {% endif %}
+                                {% if w.location %}
+                                {{ w.location }}
+                                {% endif %}
+                                </small></h4>
+                            <p class="faded">{{ w.date_from }} -
+                                {% if w.date_to %}
+                                {{ w.date_to }}
+                                {% else %}
+                                Present
+                                {% endif %}</p>
+                            <br>
+                            {% endfor %}
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+
+    <script src="{% static 'js' %}/jquery-3.2.1.min.js"></script>
+    <script src="{% static 'js' %}/bootstrap.min.js"></script>
+    <script src="{% static 'js' %}/main.js"></script>
+
+</body>
+</html>

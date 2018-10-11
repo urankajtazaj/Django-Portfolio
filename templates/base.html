@@ -1,0 +1,37 @@
+{% extends 'generic.html' %}
+
+{% block content %}
+<div class="hero">
+    <div class="container">
+        <div class="row justify-content-center align-items-center">
+            <div class="overlay"></div>
+            <div class="text-center col-md-6 col-12">
+                <h2>{{ author }}</h2>
+                <p class="lead">{{ author.exerpt }}</p>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <br><br>
+            <h3>Open Source Projects</h3>
+            <br>
+        </div>
+        {% load static %}
+        {% for p in projects %}
+        <div class="col-md-3 col-12">
+            <a class="project-info" href="{% url 'project' name=p.name %}">
+                <div class="image">
+                    <img src="{% static 'media/' %}{{ p.picture }}" alt="{{ p.picture }}">
+                </div>
+                <h5>{{ p.name }}</h5>
+                <p>{{ p.description|striptags|truncatechars:70 }}</p>
+            </a>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+{% endblock %}
