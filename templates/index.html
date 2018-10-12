@@ -29,10 +29,10 @@
                 <div class="col-md-6 col-12 right side">
                     {% if skills or projects or edus or works %}
                     <div class="d-flex flex-row flex-md-column center side icons">
-                        {% if skills %} <img class="active" src="{% static 'media/' %}icons/check.png"> {% endif %}
-                        {% if projects %}<img src="{% static 'media/' %}icons/terminal.png"> {% endif %}
-                        {% if edus %}<img src="{% static 'media/' %}icons/edu.png"> {% endif %}
-                        {% if works %}<img src="{% static 'media/' %}icons/portfolio.png"> {% endif %}
+                        {% if skills %} <i class="active fas fa-check-circle"></i> {% endif %}
+                        {% if projects %}<i class="fab fa-github"></i> {% endif %}
+                        {% if edus %}<i class="fas fa-graduation-cap"></i> {% endif %}
+                        {% if works %}<i class="fas fa-briefcase"></i> {% endif %}
                     </div>
                     {% endif %}
 

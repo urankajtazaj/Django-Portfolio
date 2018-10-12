@@ -1,5 +1,5 @@
 var content = $(".tab");
-var tab = $(".icons img");
+var tab = $(".icons i");
 
 tab.each(function(i, el) {
     var e = $(el);
