@@ -11,6 +11,7 @@ p {
     overflow-x: auto;
     position: relative;
     background-color: #35314e;
+    background: linear-gradient(to right, #242136, #35314e);
 }
 
 h1:not(.light) {
@@ -24,7 +25,7 @@ h1:not(.light) {
 
 .side {
     color: #fff;
-    height: 100%;
+    height: auto;
     position: relative;
 }
 
@@ -37,17 +38,19 @@ h1:not(.light) {
 }
 
 .side.right {
+    padding-left: 130px;
     overflow-y: auto;
+    height: 100%;
 }
 
 .side.center {
-    background-color: #413d5c;
+    /* background-color: #36324d; */
     position: absolute;
-    left: 50%;
+    left: 0;
     top: 0;
-    margin-left: -50px;
+    /* margin-left: -50px; */
     z-index: 5;
-    height: 100%;
+    /* height: 100; */
 }
 
 .skillset li {
@@ -86,24 +89,28 @@ h1:not(.light) {
 }
 
 .icons {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    position: fixed;
+    /* display: flex; */
+    /* flex-direction: column; */
+    /* align-items: center; */
     max-width: 100px;
-    box-shadow: 0 0 50px rgba(0, 0, 0, 0.2);
+    padding-top: 20px;
+    /* box-shadow: 10px 0 20px rgba(0, 0, 0, 0.07); */
 }
 
 .icons img {
     padding: 20px 15px;
     height: 80px;
-    opacity: .5;
+    /* width: 73px; */
+    /* margin-right: 20px; */
+    opacity: .3;
     transition: 200ms ease;
     cursor: pointer;
 }
 
 .icons img:hover, .icons img.active {
     opacity: 1;
-    background-color: rgba(255, 255, 255, 0.1);
+    /* background-color: rgba(255, 255, 255, 0.1); */
 }
 
 ul li {
@@ -160,4 +167,32 @@ a.project:hover {
     background-color: rgba(255, 255, 255, 0.05);
     text-decoration: none;
     border-bottom-color: transparent;
+}
+
+@media only screen and (max-width: 768px) {
+    .icons {
+        /* left: 10%; */
+        padding-left: 60px;
+        transform: translateY(-30px);
+        /* padding-bottom: 50px; */
+        /* margin-bottom: 100px; */
+    }
+
+    .side:not(.right) {
+        padding: 30px !important;
+    }
+
+    .side.right {
+        padding-left: 30px;
+        padding-right: 30px;
+    }
+
+    .tab {
+        padding-right: 30px;
+    }
+
+    .icons img {
+        max-width: 74px;
+        /* height: 70px; */
+    }
 }

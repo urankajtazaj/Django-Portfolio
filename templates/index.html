@@ -17,13 +17,6 @@
     
     <div class="wrapper">
 
-        <div class="center side icons">
-            {% if skills %} <img class="active" src="{% static 'media/' %}icons/check.png"> {% endif %}
-            {% if projects %}<img src="{% static 'media/' %}icons/terminal.png"> {% endif %}
-            {% if edus %}<img src="{% static 'media/' %}icons/edu.png"> {% endif %}
-            {% if works %}<img src="{% static 'media/' %}icons/portfolio.png"> {% endif %}
-        </div>
-
         <div class="container-fluid">
             <div class="row">
                 <div class="col-md-6 col-12 left side">
@@ -32,7 +25,17 @@
                     <hr>
                     {{ author.exerpt|safe }}
                 </div>
+    
                 <div class="col-md-6 col-12 right side">
+                    {% if skills or projects or edus or works %}
+                    <div class="d-flex flex-row flex-md-column center side icons">
+                        {% if skills %} <img class="active" src="{% static 'media/' %}icons/check.png"> {% endif %}
+                        {% if projects %}<img src="{% static 'media/' %}icons/terminal.png"> {% endif %}
+                        {% if edus %}<img src="{% static 'media/' %}icons/edu.png"> {% endif %}
+                        {% if works %}<img src="{% static 'media/' %}icons/portfolio.png"> {% endif %}
+                    </div>
+                    {% endif %}
+
                     <div class="tab-content">
                         <div class="tab skills">
                             <h1 class="light">Skills</h1>
